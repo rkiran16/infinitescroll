@@ -32,6 +32,7 @@ export default function useBooksSearch (query,pageNumber) {
 		}).catch(err => {
 			if(axios.isCancel(err)) return
 			setError(true)
+			setLoading(false);
 		})
 		return () => cancel();
 	},[query,pageNumber])
