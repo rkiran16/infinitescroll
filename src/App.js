@@ -27,14 +27,18 @@ export default function App() {
 	}
 
 	return (
-		<Container className="p-4">
-			<Row>
-				<Col>
+		<>
+			<Container fluid className="bg-warning">
+				<Container className="p-5">
 					<Form>
 						<Form.Group>
-							<Form.Control size="lg" type="text" placeholder="Search Books" value={query} onChange={onTextInputChange}/>
+							<Form.Control className="rounded"  size="lg" type="text" placeholder="Search Books" value={query} onChange={onTextInputChange}/>
 						</Form.Group>
 					</Form>
+				</Container>
+			</Container>
+			<Container fluid className="bg-info" style={{ height: '100vh' }}>
+				<Container className="p-5">
 					<Row>
 						{books && books.map((book,index) => {
 							if(index === books.length - 1) {
@@ -79,8 +83,8 @@ export default function App() {
 						})}
 					</Row>}
 					{error && <p>Error</p>}
-				</Col>
-			</Row>
-		</Container>
+				</Container>
+			</Container>
+		</>
 	);
 }
