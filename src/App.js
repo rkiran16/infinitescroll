@@ -1,7 +1,7 @@
 import useBooksSearch from './useBooksSearch';
 import {useState, useRef, useCallback } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import {Card,  Row, Col, Container, Form} from 'react-bootstrap';
+import {Card,  Row, Col, Container, Form, Navbar} from 'react-bootstrap';
 import './app.scss';
 import BookTile from "./BookTile";
 
@@ -30,11 +30,19 @@ export default function App() {
 
 	return (
 		<>
-			<Container fluid className="bg-warning">
+			<Container fluid className="bg-warning p-0">
+				<Navbar sticky="top" expand="lg" variant="dark" bg="dark">
+					<Navbar.Brand href="/">BOOK SHOP</Navbar.Brand>
+				</Navbar>
+			</Container>
+			<Container fluid className="bg-warning" style={{ height: '250px' }}>
 				<Container className="p-5">
 					<Form>
 						<Form.Group>
 							<Form.Control className="rounded"  size="lg" type="text" placeholder="Search Books" value={query} onChange={onTextInputChange}/>
+							<Form.Text className="text-muted">
+								Start typing to see your favorite books.
+							</Form.Text>
 						</Form.Group>
 					</Form>
 				</Container>

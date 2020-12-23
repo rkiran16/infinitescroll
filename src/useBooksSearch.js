@@ -23,7 +23,7 @@ export default function useBooksSearch (query,pageNumber) {
 			params: {q: query, page: pageNumber},
 			cancelToken: new axios.CancelToken(c => cancel = c)
 		}).then(response => {
-			console.log(response.data.docs);
+			//console.log(response.data.docs);
 			setLoading(false);
 			setBooks((prevBooks) => {
 				return [...new Set([...prevBooks, ...response.data.docs])]
