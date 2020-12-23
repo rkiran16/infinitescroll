@@ -1,7 +1,9 @@
 import useBooksSearch from './useBooksSearch';
 import {useState, useRef, useCallback } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import {Card,  Row, Col, Container, Form} from 'react-bootstrap'
+import {Card,  Row, Col, Container, Form} from 'react-bootstrap';
+import './app.scss';
+import BookTile from "./BookTile";
 
 
 export default function App() {
@@ -37,33 +39,26 @@ export default function App() {
 					</Form>
 				</Container>
 			</Container>
-			<Container fluid className="bg-info" style={{ height: '100vh' }}>
+			<Container fluid className="bg-info" style={{ minHeight: '100vh' }}>
 				<Container className="p-5">
 					<Row>
 						{books && books.map((book,index) => {
 							if(index === books.length - 1) {
 								return (
-									<Col className="p-2" sm={12} md={4} ref={lastElementRef} key={`book-${Math.random()}`}>
-										<Card style={{ height: '100%' }}>
-											<Card.Img style={{ maxHeight: '325px' }} className="img-fluid" variant="top" src={`http://covers.openlibrary.org/b/olid/${book.edition_key && book.edition_key[0]}-L.jpg`} />
-											<Card.ImgOverlay>
-												<Card.Body>
-													<Card.Title>{book.title}</Card.Title>
-												</Card.Body>
-											</Card.ImgOverlay>
-										</Card>
+									<Col className="p-2" xs={12} sm={6} md={4} ref={lastElementRef} key={`book-${Math.random()}`}>
+										<BookTile
+											id={book.edition_key && book.edition_key[0]}
+											title={book.title}
+											authorName={book.author_name && book.author_name[0]}
+											elementRef={lastElementRef()} />
 									</Col>
 								)
 							} else {
-								return <Col className="p-2" sm={12} md={4} key={`book-${Math.random()}`}>
-									<Card style={{ height: '100%' }}>
-										<Card.Img style={{ maxHeight: '325px' }} className="img-fluid" variant="top" src={`http://covers.openlibrary.org/b/olid/${book.edition_key && book.edition_key[0]}-L.jpg`} />
-										<Card.ImgOverlay>
-											<Card.Body>
-												<Card.Title>{book.title}</Card.Title>
-											</Card.Body>
-										</Card.ImgOverlay>
-									</Card>
+								return <Col className="p-2" xs={12} sm={6} md={4} key={`book-${Math.random()}`}>
+									<BookTile
+										id={book.edition_key && book.edition_key[0]}
+										authorName={book.author_name && book.author_name[0]}
+										title={book.title} />
 								</Col>
 							}
 						})}

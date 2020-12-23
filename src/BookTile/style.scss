@@ -1,0 +1,71 @@
+.bookTile {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  min-width: 320px;
+  max-height: 320px;
+  max-width: 320px;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+
+  img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+    width: 100%;
+  }
+
+  figcaption {
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    height: 3.75em;
+    background: #fff;
+    color: #3c4a50;
+    position: absolute;
+    width: 100%;
+    transition: transform 0.35s;
+    transform: translate3d(0, 100%, 0);
+
+    // author name
+    h5 {
+      transition: transform 0.35s;
+      transform: translate3d(0, 200%, 0);
+      float: left;
+      display: inline-block;
+    }
+
+    // Title
+    h4 {
+      position: absolute;
+      bottom: 5em;
+      color: #fff;
+      text-transform: none;
+      opacity: 0;
+      -webkit-transition: opacity 0.35s;
+      transition: opacity 0.35s;
+      -webkit-backface-visibility: hidden;
+    }
+
+
+  }
+
+  &:hover {
+    figcaption {
+      transform: translate3d(0, 0, 0);
+
+      h5 {
+        transition-delay: 0.05s;
+        transform: translate3d(0, 0, 0);
+      }
+
+      h4 {
+        opacity: 1;
+      }
+    }
+  }
+
+}
