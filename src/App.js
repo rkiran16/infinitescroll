@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton';
 import {Card,  Row, Col, Container, Form, Navbar} from 'react-bootstrap';
 import './app.scss';
 import BookTile from "./BookTile";
+import Lottie from "./Lottie";
 
 
 export default function App() {
@@ -34,6 +35,9 @@ export default function App() {
 				<Navbar sticky="top" expand="lg" variant="dark" bg="dark">
 					<Navbar.Brand href="/">BOOK SHOP</Navbar.Brand>
 				</Navbar>
+			</Container>
+			<Container fluid className="bg-warning p-0">
+				<Lottie />
 			</Container>
 			<Container fluid className="bg-warning" style={{ height: '250px' }}>
 				<Container className="p-5">
