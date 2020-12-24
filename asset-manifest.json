@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/infinitescroll/static/css/main.5456cbda.chunk.css",
-    "main.js": "/infinitescroll/static/js/main.667961dd.chunk.js",
-    "main.js.map": "/infinitescroll/static/js/main.667961dd.chunk.js.map",
+    "main.js": "/infinitescroll/static/js/main.a0715a9c.chunk.js",
+    "main.js.map": "/infinitescroll/static/js/main.a0715a9c.chunk.js.map",
     "runtime-main.js": "/infinitescroll/static/js/runtime-main.8a016608.js",
     "runtime-main.js.map": "/infinitescroll/static/js/runtime-main.8a016608.js.map",
-    "static/js/2.2a1cd575.chunk.js": "/infinitescroll/static/js/2.2a1cd575.chunk.js",
-    "static/js/2.2a1cd575.chunk.js.map": "/infinitescroll/static/js/2.2a1cd575.chunk.js.map",
+    "static/js/2.acc6adef.chunk.js": "/infinitescroll/static/js/2.acc6adef.chunk.js",
+    "static/js/2.acc6adef.chunk.js.map": "/infinitescroll/static/js/2.acc6adef.chunk.js.map",
     "index.html": "/infinitescroll/index.html",
     "static/css/main.5456cbda.chunk.css.map": "/infinitescroll/static/css/main.5456cbda.chunk.css.map",
-    "static/js/2.2a1cd575.chunk.js.LICENSE.txt": "/infinitescroll/static/js/2.2a1cd575.chunk.js.LICENSE.txt"
+    "static/js/2.acc6adef.chunk.js.LICENSE.txt": "/infinitescroll/static/js/2.acc6adef.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a016608.js",
-    "static/js/2.2a1cd575.chunk.js",
+    "static/js/2.acc6adef.chunk.js",
     "static/css/main.5456cbda.chunk.css",
-    "static/js/main.667961dd.chunk.js"
+    "static/js/main.a0715a9c.chunk.js"
   ]
 }
