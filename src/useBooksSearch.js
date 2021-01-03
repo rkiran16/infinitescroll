@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const URL = 'https://openlibrary.org/search.json';
+const URL = 'https://www.googleapis.com/books/v1/volumes?maxResults=40&key=AIzaSyDpJWo6qYp0bfGhR-rbKtcbgSoxCUUiKN0';
 
 export default function useBooksSearch (query,pageNumber) {
 	const [books,setBooks] = useState([]);
@@ -17,24 +17,29 @@ export default function useBooksSearch (query,pageNumber) {
 	useEffect(() => {
 		setLoading(true);
 		setError(false);
-		axios({
-			method: 'GET',
-			url: URL,
-			params: {q: query, page: pageNumber},
-			cancelToken: new axios.CancelToken(c => cancel = c)
-		}).then(response => {
-			//console.log(response.data.docs);
-			setLoading(false);
-			setBooks((prevBooks) => {
-				return [...new Set([...prevBooks, ...response.data.docs])]
+		if(query !== '') {
+			axios({
+				method: 'GET',
+				url: URL,
+				params: {q: query, startIndex: pageNumber},
+				cancelToken: new axios.CancelToken(c => cancel = c)
+			}).then(response => {
+				//console.log(response.data.docs);
+				setLoading(false);
+				setBooks((prevBooks) => {
+					return [...new Set([...prevBooks, ...response.data.items])]
+				})
+				setHasMore(response.data.items.length > 0)
+			}).catch(err => {
+				if(axios.isCancel(err)) return
+				setError(true)
+				setLoading(false);
 			})
-			setHasMore(response.data.docs.length > 0)
-		}).catch(err => {
-			if(axios.isCancel(err)) return
-			setError(true)
+			return () => cancel();
+		} else {
 			setLoading(false);
-		})
-		return () => cancel();
+		}
+
 	},[query,pageNumber])
 
 	return {

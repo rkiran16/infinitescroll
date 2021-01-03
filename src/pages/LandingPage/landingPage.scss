@@ -1,0 +1,14 @@
+.landingContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  hr {
+     border: 5px solid;
+  }
+
+  .book-icon {
+     width: 10rem;
+  }
+
+}

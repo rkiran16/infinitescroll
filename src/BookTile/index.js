@@ -1,12 +1,12 @@
 import React from "react";
 import './style.scss';
 
-export default function BookTile({id, title, authorName, elementRef}) {
+export default function BookTile({volumeInfo: { title, authors, imageLinks }}) {
 	return (
-		<figure style={{ minHeight: '300px' }} ref={elementRef && elementRef} className="bookTile">
-			<img src={id ? `http://covers.openlibrary.org/b/olid/${id}-L.jpg` : 'https://placeimg.com/300/300/book'}/>
+		<figure className="bookTile">
+			<img src={imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : 'https://placeimg.com/300/300/book'}/>
 			<figcaption>
-				<h5>{authorName}</h5>
+				{authors && authors.length > 0 && authors.map(author => <h5>{author}</h5>)}
 				<h4>{title}</h4>
 			</figcaption>
 		</figure>

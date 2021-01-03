@@ -1,1 +1,69 @@
 @import "~bootstrap/scss/bootstrap";
+
+html {
+  font-size: 1rem;
+}
+
+html, body, #root {
+   width: 100%;
+   height: 100%;
+}
+
+
+.btn-grad {background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%)}
+.btn-grad {
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.bg-gradient {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+   position: relative;
+   width: 100%;
+   height: 100%;
+
+  .pg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    overflow: auto;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    transform-style: preserve-3d;
+
+    &.pg-current {
+      visibility: visible !important;
+      z-index: 1;
+    }
+  }
+}
+
+.pt-page-moveToTopFade {
+  animation: moveToTopFade .7s ease both;
+}
+
+@keyframes moveToTopFade {
+  from { }
+  to { opacity: 0.3; -webkit-transform: translateY(-100%); transform: translateY(-100%); }
+}
