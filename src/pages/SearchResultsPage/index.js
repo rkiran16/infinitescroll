@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Row, Col, Card} from "react-bootstrap";
+import { Row, Col, Card} from "react-bootstrap";
 import BookTile from "../../BookTile";
 import Skeleton from "react-loading-skeleton";
 import './searchResultsPage.scss';
@@ -11,8 +11,7 @@ const SearchResultsPage = ({id, books, loading, lastElementRef, error}) => {
 				{books && books.map((book, index) => {
 					if (index === books.length - 2) {
 						return (
-							<div ref={lastElementRef}
-							     key={`book-${Math.random()}`}>
+							<div ref={lastElementRef} key={`book-${Math.random()}`}>
 								<BookTile volumeInfo={book.volumeInfo}/>
 							</div>
 						)

@@ -1,6 +1,6 @@
 import useBooksSearch from './useBooksSearch';
 import React, {useState, useRef, useCallback} from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { PageTransition } from '@steveeeie/react-page-transition';
 import './app.scss';
 import LandingPage from "./pages/LandingPage";
@@ -43,7 +43,7 @@ export default function App() {
 							transitionKey={location.pathname}
 						>
 							<Switch location={location}>
-								<Route exact path="/" component={Home} />
+								<Route exact path="/infinitescroll" component={Home} />
 								<Route exact path="/search" component={Search} />
 								<Route exact path="/results" component={Results} />
 							</Switch>
