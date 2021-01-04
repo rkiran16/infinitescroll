@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/infinitescroll/static/css/main.5456cbda.chunk.css",
-    "main.js": "/infinitescroll/static/js/main.a0715a9c.chunk.js",
-    "main.js.map": "/infinitescroll/static/js/main.a0715a9c.chunk.js.map",
+    "main.css": "/infinitescroll/static/css/main.8332f592.chunk.css",
+    "main.js": "/infinitescroll/static/js/main.4301cd1e.chunk.js",
+    "main.js.map": "/infinitescroll/static/js/main.4301cd1e.chunk.js.map",
     "runtime-main.js": "/infinitescroll/static/js/runtime-main.8a016608.js",
     "runtime-main.js.map": "/infinitescroll/static/js/runtime-main.8a016608.js.map",
-    "static/js/2.acc6adef.chunk.js": "/infinitescroll/static/js/2.acc6adef.chunk.js",
-    "static/js/2.acc6adef.chunk.js.map": "/infinitescroll/static/js/2.acc6adef.chunk.js.map",
+    "static/js/2.64f4d908.chunk.js": "/infinitescroll/static/js/2.64f4d908.chunk.js",
+    "static/js/2.64f4d908.chunk.js.map": "/infinitescroll/static/js/2.64f4d908.chunk.js.map",
     "index.html": "/infinitescroll/index.html",
-    "static/css/main.5456cbda.chunk.css.map": "/infinitescroll/static/css/main.5456cbda.chunk.css.map",
-    "static/js/2.acc6adef.chunk.js.LICENSE.txt": "/infinitescroll/static/js/2.acc6adef.chunk.js.LICENSE.txt"
+    "static/css/main.8332f592.chunk.css.map": "/infinitescroll/static/css/main.8332f592.chunk.css.map",
+    "static/js/2.64f4d908.chunk.js.LICENSE.txt": "/infinitescroll/static/js/2.64f4d908.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8a016608.js",
-    "static/js/2.acc6adef.chunk.js",
-    "static/css/main.5456cbda.chunk.css",
-    "static/js/main.a0715a9c.chunk.js"
+    "static/js/2.64f4d908.chunk.js",
+    "static/css/main.8332f592.chunk.css",
+    "static/js/main.4301cd1e.chunk.js"
   ]
 }
