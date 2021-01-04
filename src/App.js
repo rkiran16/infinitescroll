@@ -1,11 +1,11 @@
 import useBooksSearch from './useBooksSearch';
 import React, {useState, useRef, useCallback} from 'react';
-import { Container, Navbar} from 'react-bootstrap';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { PageTransition } from '@steveeeie/react-page-transition';
 import './app.scss';
 import LandingPage from "./pages/LandingPage";
 import SearchPage from "./pages/Search";
 import SearchResultsPage from "./pages/SearchResultsPage";
-
 
 export default function App() {
 	const [query, setQuery] = useState('');
@@ -29,32 +29,28 @@ export default function App() {
 		setPageNumber(0)
 	}
 
-	function onPageChangeHandler(e) {
-		const searchPage = document.getElementById('searchPage');
-		const landingPage = document.getElementById('landingPage');
-		const searchResultsPage = document.getElementById('searchResultsPage');
-		if(e === "landingPage") {
-			searchPage.classList.toggle('pg-current');
-			searchPage.classList.toggle('pt-page-moveToTopFade');
-			landingPage.classList.toggle('pg-current');
-			setTimeout(function () {
-				searchPage.classList.toggle('pt-page-moveToTopFade');
-			}, 800)
-		}
-	}
+	const Home = () => <LandingPage/>;
+	const Search = () => <SearchPage query={query} inputChange={(e) => onTextInputChange(e)} />;
+	const Results = () => <SearchResultsPage books={books} lastElementRef={lastElementRef} error={error} loading={loading} />;
 
 	return (
-		<>
-			<Container fluid className="p-0">
-				<Navbar sticky="top" expand="lg" variant="dark" bg="dark">
-					<Navbar.Brand href="/">BOOK FINDER</Navbar.Brand>
-				</Navbar>
-			</Container>
-			<main>
-				<LandingPage id="landingPage" onPageChange={(e) => onPageChangeHandler(e)} />
-				<SearchPage id="searchPage" query={query} inputChange={(e) => onTextInputChange(e)} />
-				<SearchResultsPage id="searchResultsPage" loading={loading} books={books} error={error} lastElementRef={lastElementRef} />
-			</main>
-		</>
+		<BrowserRouter>
+			<Route
+				render={({ location }) => {
+					return (
+						<PageTransition
+							preset="fadeTopFadeBottom"
+							transitionKey={location.pathname}
+						>
+							<Switch location={location}>
+								<Route exact path="/" component={Home} />
+								<Route exact path="/search" component={Search} />
+								<Route exact path="/results" component={Results} />
+							</Switch>
+						</PageTransition>
+					);
+				}}
+			/>
+		</BrowserRouter>
 	);
 }

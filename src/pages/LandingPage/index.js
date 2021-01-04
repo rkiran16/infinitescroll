@@ -1,14 +1,11 @@
 import React from 'react';
 import './landingPage.scss';
-import {Container, Button } from 'react-bootstrap';
+import {Container } from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
-const LandingPage = ({id, onPageChange}) => {
-
-	function onBtnClick() {
-		onPageChange(id);
-	}
+const LandingPage = () => {
 	return (
-		<div id={id} className="landingContainer pg pg-current bg-gradient">
+		<div className="landingContainer bg-gradient pg">
 			<Container className="d-flex flex-column-reverse flex-md-row justify-content-center justify-content-lg-around">
 				<div>
 					<h1 className="h2 font-weight-normal text-white mb-3">Welcome to Book Finder</h1>
@@ -20,7 +17,7 @@ const LandingPage = ({id, onPageChange}) => {
 					</h3>
 					<hr className="w-25 ml-0 border-warning mb-5"/>
 					<div className="w-75">
-						<Button className="btn-grad btn-lg btn-block" onClick={onBtnClick}>Find Your Book</Button>
+						<Link className="btn btn-grad btn-lg btn-block" to="/search">Find Your Book</Link>
 					</div>
 				</div>
 				<div className="book-icon">

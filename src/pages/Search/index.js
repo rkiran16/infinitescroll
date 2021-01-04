@@ -1,21 +1,26 @@
 import React from 'react';
-import {Container, Form} from "react-bootstrap";
+import {Container, Form, InputGroup} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
-const SearchPage = ({id, query, inputChange}) => {
+const SearchPage = ({query, inputChange}) => {
 
 	function onTextInputChange(e) {
 		inputChange(e)
 	}
 
 	return (
-		<div id={id} className="d-flex justify-content-center align-items-center bg-gradient pg">
+		<div className="d-flex justify-content-center align-items-center pg bg-gradient">
 			<Container fluid>
 				<Container className="p-5">
 					<Form>
-						<Form.Group>
-							<Form.Control className="rounded" size="lg" type="text" placeholder="Search Book/Author/ISBN"
+						<InputGroup size="lg">
+							<Form.Control className="rounded" type="text" placeholder="Search Book / Author /ISBN"
 							              value={query} onChange={onTextInputChange}/>
-						</Form.Group>
+							<InputGroup.Append>
+								<Link className="btn btn-grad" to="/results">Search</Link>
+							</InputGroup.Append>
+						</InputGroup>
+
 					</Form>
 				</Container>
 			</Container>
