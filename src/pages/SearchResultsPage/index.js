@@ -1,10 +1,10 @@
 import React from 'react';
-import { Row, Col, Card} from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import BookTile from "../../BookTile";
 import Skeleton from "react-loading-skeleton";
 import './searchResultsPage.scss';
 
-const SearchResultsPage = ({id, books, loading, lastElementRef, error}) => {
+const SearchResultsPage = ({ id, books, loading, lastElementRef, error }) => {
 	return (
 		<div id={id} className="pg bg-gradient">
 			<Row className="searchResultsPage">
@@ -12,11 +12,11 @@ const SearchResultsPage = ({id, books, loading, lastElementRef, error}) => {
 					if (index === books.length - 2) {
 						return (
 							<div ref={lastElementRef} key={`book-${Math.random()}`}>
-								<BookTile volumeInfo={book.volumeInfo}/>
+								<BookTile bookId={book.id} volumeInfo={book.volumeInfo} />
 							</div>
 						)
 					} else {
-						return <div key={`book-${Math.random()}`}><BookTile volumeInfo={book.volumeInfo}/></div>
+						return <div key={`book-${Math.random()}`}><BookTile bookId={book.id} volumeInfo={book.volumeInfo} /></div>
 					}
 				})}
 			</Row>
@@ -25,9 +25,9 @@ const SearchResultsPage = ({id, books, loading, lastElementRef, error}) => {
 					return (
 						<Col className="p-2" sm={12} md={4} key={`skeleton-${Math.random()}`}>
 							<Card>
-								<Skeleton height={150}/>
+								<Skeleton height={150} />
 								<Card.Body>
-									<Skeleton/>
+									<Skeleton />
 								</Card.Body>
 							</Card>
 						</Col>

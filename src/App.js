@@ -1,5 +1,5 @@
 import useBooksSearch from './useBooksSearch';
-import React, {useState, useRef, useCallback} from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { PageTransition } from '@steveeeie/react-page-transition';
 import './app.scss';
@@ -10,7 +10,7 @@ import SearchResultsPage from "./pages/SearchResultsPage";
 export default function App() {
 	const [query, setQuery] = useState('');
 	const [pageNumber, setPageNumber] = useState(0)
-	const {books, loading, error, hasMore} = useBooksSearch(query, pageNumber);
+	const { books, loading, error, hasMore } = useBooksSearch(query, pageNumber);
 	const observer = useRef();
 	const lastElementRef = useCallback(node => {
 		if (loading) return;
@@ -25,11 +25,11 @@ export default function App() {
 
 
 	function onTextInputChange(e) {
-		setQuery(e.target.value);
+		setQuery(e);
 		setPageNumber(0)
 	}
 
-	const Home = () => <LandingPage/>;
+	const Home = () => <LandingPage />;
 	const Search = () => <SearchPage query={query} inputChange={(e) => onTextInputChange(e)} />;
 	const Results = () => <SearchResultsPage books={books} lastElementRef={lastElementRef} error={error} loading={loading} />;
 

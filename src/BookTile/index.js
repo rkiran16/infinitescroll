@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import ReactStars from "react-rating-stars-component";
 import './style.scss';
 
-export default function BookTile({volumeInfo: { title, imageLinks, publishedDate, ratingsCount, averageRating }}) {
+export default function BookTile({ bookId, volumeInfo: { title, imageLinks, publishedDate, ratingsCount, averageRating } }) {
 	return (
 		<Card className="bookTile text-white bg-dark">
 			<Card.Img variant="top" src={imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : 'https://placeimg.com/300/300/book'} />

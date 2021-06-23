@@ -1,11 +1,18 @@
-import React from 'react';
-import {Container, Form, InputGroup} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import React, { useState } from 'react';
+import { Container, Form, InputGroup, Button } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 
-const SearchPage = ({query, inputChange}) => {
+const SearchPage = ({ query, inputChange }) => {
+	const [inputValue, setInputValue] = useState(query);
+	const history = useHistory();
 
-	function onTextInputChange(e) {
-		inputChange(e)
+	const onTextInputChange = (e) => {
+		setInputValue(e.target.value);
+	}
+
+	const searchBtnHandler = () => {
+		inputChange(inputValue);
+		history.push('/results');
 	}
 
 	return (
@@ -15,9 +22,9 @@ const SearchPage = ({query, inputChange}) => {
 					<Form>
 						<InputGroup size="lg">
 							<Form.Control className="rounded" type="text" placeholder="Search Book / Author /ISBN"
-							              value={query} onChange={onTextInputChange}/>
+								value={inputValue} onChange={(e) => onTextInputChange(e)} />
 							<InputGroup.Append>
-								<Link className="btn btn-grad" to="/results">Search</Link>
+								<Button className="btn btn-grad" disabled={inputValue === ""} onClick={searchBtnHandler}>Search</Button>
 							</InputGroup.Append>
 						</InputGroup>
 
